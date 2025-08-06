@@ -24,7 +24,7 @@ spec:
           - containerPort: 3500
           livenessProbe:
             httpGet:
-              path: backend/
+              path: /
               port: 3500
             initialDelaySeconds: 3
             periodSeconds: 10
