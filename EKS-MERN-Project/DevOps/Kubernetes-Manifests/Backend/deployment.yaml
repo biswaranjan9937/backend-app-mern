@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: mern
+  # namespace: mern
   labels:
     role: backend
     env: dev
@@ -17,35 +17,37 @@ spec:
         role: backend
     spec:
       containers:
-      - name: backend
-        image: 663880399834.dkr.ecr.ap-south-1.amazonaws.com/poc-ecr-backend:20250805-150325
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 3500
-        livenessProbe:
-          httpGet:
-            path: backend/
-            port: 3500
-          initialDelaySeconds: 3
-          periodSeconds: 10
-        env:
-        - name: host
-          valueFrom:
-            secretKeyRef:
-              name: db-credentials
-              key: host
-        - name: user
-          valueFrom:
-            secretKeyRef:
-              name: db-credentials
-              key: user
-        - name: password
-          valueFrom:
-            secretKeyRef:
-              name: db-credentials
-              key: password
-        - name: database
-          valueFrom:
-            secretKeyRef:
-              name: db-credentials
-              key: database
+        - name: backend
+          image: 663880399834.dkr.ecr.ap-south-1.amazonaws.com/poc-ecr-backend:20250805-150325
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 3500
+          livenessProbe:
+            httpGet:
+              path: backend/
+              port: 3500
+            initialDelaySeconds: 3
+            periodSeconds: 10
+      imagePullSecrets:
+        - name: ecr-secret
+        # env:
+        # - name: host
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: db-credentials
+        #       key: host
+        # - name: user
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: db-credentials
+        #       key: user
+        # - name: password
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: db-credentials
+        #       key: password
+        # - name: database
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: db-credentials
+        #       key: database
