@@ -21,7 +21,7 @@ spec:
           image: 663880399834.dkr.ecr.ap-south-1.amazonaws.com/poc-ecr-backend:20250805-150325
           imagePullPolicy: Always
           ports:
-          - containerPort: 3000
+          - containerPort: 3500
           # livenessProbe:
           #   httpGet:
           #     path: /

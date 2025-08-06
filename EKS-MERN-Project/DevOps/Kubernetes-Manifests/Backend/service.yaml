@@ -6,8 +6,8 @@ metadata:
 spec:
   ports:
   - name: backend-port
-    port: 3000
+    port: 3500
     protocol: TCP
-    targetPort: 3000
+    targetPort: 3500
   selector:
     role: backend 
