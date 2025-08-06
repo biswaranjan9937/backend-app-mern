@@ -22,12 +22,12 @@ spec:
           imagePullPolicy: Always
           ports:
           - containerPort: 3500
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 3500
-            initialDelaySeconds: 3
-            periodSeconds: 10
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 3500
+          #   initialDelaySeconds: 3
+          #   periodSeconds: 10
       imagePullSecrets:
         - name: ecr-secret
         # env:
